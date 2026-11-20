@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Científica - Estilo Sketch</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="calculator-body">
+        <!-- Encabezado y Panel Solar -->
+        <div class="header">
+            <div class="brand">
+                <span class="casio">CASIO</span>
+                <span class="model">fx-991EX</span>
+                <span class="series">CLASSWIZ</span>
+            </div>
+            <div class="solar-panel">
+                <div class="solar-cell"></div>
+                <div class="solar-cell"></div>
+                <div class="solar-cell"></div>
+                <div class="solar-cell"></div>
+            </div>
+        </div>
+
+        <!-- Pantalla LCD -->
+        <div class="screen-container">
+            <div class="indicators">
+                <span id="angle-mode">DEG</span>
+                <span>MATH</span>
+            </div>
+            <div class="display">
+                <input type="text" id="expression" readonly placeholder="0">
+                <div id="result">0</div>
+            </div>
+        </div>
+
+        <!-- Botones de Control Superior -->
+        <div class="top-controls">
+            <button class="btn-small btn-shift" onclick="toggleAngleMode()">DEG/RAD</button>
+            <button class="btn-small" onclick="appendFunction('Math.PI')">π</button>
+            <div class="d-pad">▲<br>◄ OK ►<br>▼</div>
+            <button class="btn-small" onclick="appendFunction('Math.E')">e</button>
+            <button class="btn-small btn-on" onclick="clearAll()">ON</button>
+        </div>
+
+        <!-- Teclado Científico -->
+        <div class="scientific-keys">
+            <button class="btn-sci" onclick="appendFunction('sqrt(')">√</button>
+            <button class="btn-sci" onclick="appendOperator('^2')">x²</button>
+            <button class="btn-sci" onclick="appendOperator('^')">xⁿ</button>
+            <button class="btn-sci" onclick="appendFunction('log(')">log</button>
+            <button class="btn-sci" onclick="appendFunction('ln(')">ln</button>
+
+            <button class="btn-sci" onclick="appendFunction('sin(')">sin</button>
+            <button class="btn-sci" onclick="appendFunction('cos(')">cos</button>
+            <button class="btn-sci" onclick="appendFunction('tan(')">tan</button>
+            <button class="btn-sci" onclick="appendValue('(')">(</button>
+            <button class="btn-sci" onclick="appendValue(')')">)</button>
+        </div>
+
+        <!-- Teclado Numérico y Básico -->
+        <div class="main-keys">
+            <button class="btn-num" onclick="appendValue('7')">7</button>
+            <button class="btn-num" onclick="appendValue('8')">8</button>
+            <button class="btn-num" onclick="appendValue('9')">9</button>
+            <button class="btn-del" onclick="deleteLast()">DEL</button>
+            <button class="btn-ac" onclick="clearAll()">AC</button>
+
+            <button class="btn-num" onclick="appendValue('4')">4</button>
+            <button class="btn-num" onclick="appendValue('5')">5</button>
+            <button class="btn-num" onclick="appendValue('6')">6</button>
+            <button class="btn-op" onclick="appendOperator('*')">×</button>
+            <button class="btn-op" onclick="appendOperator('/')">÷</button>
+
+            <button class="btn-num" onclick="appendValue('1')">1</button>
+            <button class="btn-num" onclick="appendValue('2')">2</button>
+            <button class="btn-num" onclick="appendValue('3')">3</button>
+            <button class="btn-op" onclick="appendOperator('+')">+</button>
+            <button class="btn-op" onclick="appendOperator('-')">−</button>
+
+            <button class="btn-num" onclick="appendValue('0')">0</button>
+            <button class="btn-num" onclick="appendValue('.')">.</button>
+            <button class="btn-num" onclick="appendOperator('*10^')">×10ˣ</button>
+            <button class="btn-num" onclick="useAns()">Ans</button>
+            <button class="btn-equal" onclick="calculate()">=</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
